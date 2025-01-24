@@ -1,5 +1,5 @@
 Project Title:
-Serial Killer’s Recipe Book
+Serial Killer’s Recipe Book !
 
 Project Overview:
 The Serial Killer's Recipe Book is a fun, spooky, and quirky online app where users can explore strange recipes with creepy backstories. Each recipe includes a weird story about how the ingredients were "gathered." Users can view, add, or edit their own recipes and even rate or comment on others' dishes. It’s a mix of dark humor and creative cooking.
