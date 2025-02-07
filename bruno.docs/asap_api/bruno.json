@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "asap_test",
+  "name": "asap_api",
   "type": "collection",
   "ignore": [
     "node_modules",
