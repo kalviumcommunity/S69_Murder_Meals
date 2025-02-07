@@ -12,14 +12,16 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose'); // Import mongoose here
-const connectDatabase = require('./DB/database'); // Import your custom database connection logic
+const mongoose = require('mongoose'); 
+const connectDatabase = require('./DB/database'); 
+const routes = require('./routes');
 
 // Initialize dotenv to use environment variables
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+app.use(express.json());
 
 // Connect to the database
 connectDatabase();
@@ -38,6 +40,8 @@ app.get('/status', (req, res) => {
         res.status(500).send('MongoDB connection failed!');
     }
 });
+
+app.use('/api',routes);
 
 // Start the server
 app.listen(port, () => {
