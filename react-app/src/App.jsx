@@ -7,7 +7,7 @@ function App() {
     <div className="app">
       <header className="hero">
         <h1>MURDER MEALS</h1>
-        <p>Killer recepies. Dark dishes. Bloody sause.</p>
+        <p>Killer recipes. Dark dishes. Bloody sauce.</p>
         <button>Explore Gallery</button>
       </header>
     </div>
