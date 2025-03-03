@@ -4,7 +4,6 @@
   "description": "Project Title:\r Serial Killer’s Recipe Book",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
