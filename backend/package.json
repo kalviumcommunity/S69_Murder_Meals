@@ -4,8 +4,6 @@
   "description": "Project Title:\r Serial Killer’s Recipe Book",
   "main": "index.js",
   "scripts": {
-    "dev":"node server.js"
-
   },
   "repository": {
     "type": "git",

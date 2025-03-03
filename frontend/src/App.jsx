@@ -1,8 +1,12 @@
+
 // App.jsx
 
 import React from 'react';
 import './App.css';
 import Recipe from './components/Recipe'; // Import the Recipe component
+// client/src/App.jsx
+import React from 'react';
+import './App.css';
 
 function App() {
   return (
@@ -29,6 +33,11 @@ function App() {
       {/* Recipe Component */}
       <Recipe />  {/* Add the Recipe component here to display it below the main content */}
       
+      <header className="hero">
+        <h1>MURDER MEALS</h1>
+        <p>Killer recipes. Dark dishes. Bloody sauce.</p>
+        <button>Explore Gallery</button>
+      </header>
     </div>
   );
 }
