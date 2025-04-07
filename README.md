@@ -12,6 +12,8 @@ User Accounts: Users can sign up to save their favorite recipes.
 Rate and Comment: Leave ratings and funny comments on recipes.
 Spooky Design: A dark and eerie theme that matches the creepy cooking vibe.
 
+
+
 ## Deployment Links
 Backend : https://s69-murder-meals-1.onrender.com 
 Frontend : https://murdermeals.netlify.app/
