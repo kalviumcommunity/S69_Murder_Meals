@@ -3,20 +3,26 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Item = require('./models/Item');
 
-//POST
-router.post('/items',async(req,res)=>{
-    try{
-        const {name} = req.body;
 
-        const newItem = new Item({name});
+// POST - Added validation
+router.post('/items', async (req, res) => {
+  try {
+      const { name } = req.body;
 
-        await newItem.save();
+      // Validation: name is required, must be a non-empty string
+      if (!name || typeof name !== 'string' || name.trim() === '') {
+          return res.status(400).json({ message: 'Name is required and must be a non-empty string' });
+      }
 
-        res.status(201).json({message:'Item added successfully',newItem});
-    }catch(err){
-        res.status(400).json({message : err.message});
-    }
+      const newItem = new Item({ name });
+      await newItem.save();
+
+      res.status(201).json({ message: 'Item added successfully', newItem });
+  } catch (err) {
+      res.status(400).json({ message: err.message });
+  }
 });
+
 
 
 //GET
@@ -29,6 +35,7 @@ router.get('/items',async(req,res)=>{
         res.status(400).json({message:err.message});
     }
 });
+
 
 //GET BY ID
 router.get('/items/:id', async (req, res) => {
@@ -43,20 +50,30 @@ router.get('/items/:id', async (req, res) => {
     }
   });
 
-//UPDATE BY ID
-router.put('/items/:id',async(req,res)=>{
-    try{
-        const {name} = req.body;
-        const updated = await Item.findByIdAndUpdate(req.params.id, {name},{new:true});
-        
-        if(!updated){
-            return res.status(404).json({message:'item not found'});
-        }
-        res.status(200).json({message:'updated successfully',updated});
-    }catch(err){
-        res.status(400).json({message: err.message});
-    }
-})
+
+// PUT - Added validation
+router.put('/items/:id', async (req, res) => {
+  try {
+      const { name } = req.body;
+
+      // Validation: name is required, must be a non-empty string
+      if (!name || typeof name !== 'string' || name.trim() === '') {
+          return res.status(400).json({ message: 'Name is required and must be a non-empty string' });
+      }
+
+      const updated = await Item.findByIdAndUpdate(req.params.id, { name }, { new: true });
+
+      if (!updated) {
+          return res.status(404).json({ message: 'Item not found' });
+      }
+
+      res.status(200).json({ message: 'Updated successfully', updated });
+  } catch (err) {
+      res.status(400).json({ message: err.message });
+  }
+});
+
+
 
 // DELETE BY ID
 router.delete('/items/:id', async (req, res) => {
@@ -71,4 +88,6 @@ router.delete('/items/:id', async (req, res) => {
     }
   });
   
+
+
   module.exports = router;
